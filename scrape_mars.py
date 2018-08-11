@@ -25,7 +25,7 @@ def scrape ():
 
     paragraph = nasa_soup.find("div", class_="article-teaser-body").text()
     mission_to_mars["article"] = paragraph
-
+    print
 
     browser = init_browser()
     jpl_url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
@@ -37,7 +37,7 @@ def scrape ():
     featured_image = 'https://www.jpl.nasa.gov/' + image_src
 
     mission_to_mars['featured_image'] = featured_image
-
+    print
     
     mars_weather_url = 'https://twitter.com/marswxreport?lang=en'
     response = requests.get(mars_weather_url)
@@ -45,7 +45,7 @@ def scrape ():
     recent_tweet = soup_tweet.find('p',class_='TweetTextSize').text
 
     mission_to_mars['weather_tweet'] = recent_tweet
-
+    print 
 
     mars_facts_url = 'https://space-facts.com/mars/'
     mars_table = pd.read_html(mars_facts_url)
@@ -55,7 +55,7 @@ def scrape ():
 
     mars_table_html = mars_table_df.to_html(header=True, index=False)
     mission_to_mars['mars_facts_table'] = mars_table_html
-
+    print
 
     mars_hemisphere_url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     browser.visit(mars_hemisphere_url)
@@ -96,6 +96,6 @@ def scrape ():
             #Valles Marineris
             valles_marineris = hemisphere_list[3]['img_url']
             mission_to_mars['valles_marineris'] = valles_marineris
-
+    print
 
     return mission_to_mars
