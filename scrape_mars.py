@@ -84,18 +84,17 @@ def scrape ():
 
             print(hemisphere_list)
 
-            #Cerberus
             cerberus = hemisphere_list[0]['img_url']
             mission_to_mars['cerberus'] = cerberus
-            #Shciaparelli
+
             schiaparelli = hemisphere_list[1]['img_url']
             mission_to_mars['schiaparelli'] = schiaparelli
-            #Syrtis Major
+
             syrtis_major = hemisphere_list[2]['img_url']
             mission_to_mars['syrtis_major'] = syrtis_major
-            #Valles Marineris
+
             valles_marineris = hemisphere_list[3]['img_url']
             mission_to_mars['valles_marineris'] = valles_marineris
-    print
+            print
 
     return mission_to_mars
